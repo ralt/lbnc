@@ -1,0 +1,3 @@
+# lbnc
+
+Lisp IRC Bouncer.
