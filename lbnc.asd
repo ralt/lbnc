@@ -7,5 +7,6 @@
   :license "GPL License"
   :depends-on ("hunchentoot" "cl-who" "clws" "bordeaux-threads")
   :components ((:file "package")
-               (:file "web")
+               (:file "http")
+               (:file "ws")
                (:file "lbnc")))
