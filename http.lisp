@@ -20,3 +20,14 @@
         (:div :class "message"
           (:div :class "nickname")
           (:div :class "text")))))
+
+(defmacro page (title &body body)
+  `(who:with-html-output-to-string (*standard-output* nil :prologue t)
+     (:html
+      (:head
+       (:meta :charset "utf-8")
+       (:title ,title)
+       (:link :rel "stylesheet" :href "static/css/style.css")
+       (:script :src "static/js/script.js"))
+      (:body
+       ,@body))))
