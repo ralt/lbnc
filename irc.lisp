@@ -14,4 +14,5 @@
 (defun add-privmsg-hook (uid)
   (let ()
     (lambda (message)
-      (write-to-client-text (get-client uid) (format nil "~A" message)))))
+      (write-to-client-text (get-client uid)
+                            (format nil "~A" message)))))
