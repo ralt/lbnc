@@ -12,6 +12,7 @@
                "cl-irc"
                "uuid")
   :components ((:file "package")
+               (:file "users")
                (:file "http")
                (:file "ws")
                (:file "irc")
