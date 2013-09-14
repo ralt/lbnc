@@ -10,7 +10,8 @@
                "clws"
                "bordeaux-threads"
                "cl-irc"
-               "uuid")
+               "uuid"
+               "cl-json")
   :components ((:file "package")
                (:file "users")
                (:file "http")

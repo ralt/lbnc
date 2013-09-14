@@ -4,7 +4,8 @@
 (start (make-instance 'easy-acceptor :port 1101))
 
 ;; Static folder
-(push (create-folder-dispatcher-and-handler "/static/" "static/")
+(push (create-folder-dispatcher-and-handler "/static/"
+                                            "~/quicklisp/local-projects/lbnc/static/")
       *dispatch-table*)
 
 (define-easy-handler (home :uri "/") ()
