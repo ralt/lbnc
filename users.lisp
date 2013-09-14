@@ -2,8 +2,6 @@
 
 (defparameter *users* (make-hash-table :test 'equal))
 
-(defparameter *uids* 0)
-
 (defun get-connection (uid)
   (nth 1 (gethash uid *users*)))
 

@@ -1,7 +1,7 @@
 (in-package #:lbnc)
 
 (defun create-irc-connection (client nickname)
-  (let ((uid (write-to-string (setf *uids* (1+ *uids*))))
+  (let ((uid (format nil "~A" (uuid:make-v4-uuid)))
         (conn (cl-irc:connect :nickname nickname
                               ; Test server: ngircd works nicely.
                               :server "127.0.0.1")))

@@ -9,7 +9,8 @@
                "cl-who"
                "clws"
                "bordeaux-threads"
-               "cl-irc")
+               "cl-irc"
+               "uuid")
   :components ((:file "package")
                (:file "users")
                (:file "http")
