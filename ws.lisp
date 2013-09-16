@@ -22,7 +22,9 @@
     (cond
       ((string= command "connect")
        (let ((new-uid (create-irc-connection client rest)))
-         (write-to-client-text client new-uid)
+         (write-to-client-text client (concatenate 'string
+                                                   "new-uid "
+                                                   new-uid))
          (cl-irc:add-hook (get-connection new-uid)
                           'cl-irc:irc-privmsg-message
                           (add-privmsg-hook new-uid))))
@@ -30,7 +32,7 @@
 
 (register-global-resource "/chat"
                           (make-instance 'chat-resource)
-                          (origin-prefix "http://127.0.0.1" "http://localhost"))
+                          (origin-prefix "http://vm.margaine.com:1101"))
 
 (bt:make-thread (lambda ()
                   (run-resource-listener
