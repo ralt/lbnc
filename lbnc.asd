@@ -16,5 +16,6 @@
                (:file "users")
                (:file "http")
                (:file "ws")
+               (:file "commands")
                (:file "irc")
                (:file "lbnc")))

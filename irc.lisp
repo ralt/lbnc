@@ -23,4 +23,4 @@
         (write-to-client-text (get-client uid)
                               (concatenate 'string
                                            "privmsg "
-                                           (get-output-stream-string ret))))))
+                                           (get-output-stream-string ret)))))))
