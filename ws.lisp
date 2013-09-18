@@ -15,8 +15,8 @@
 (defmethod resource-client-disconnected ((res chat-resource) client)
   t)
 
-(defmacro defcommand (command &body body)
-  `(setf (gethash ,command *commands*) #'(lambda (uid rest)
+(defmacro defcommand (command args &body body)
+  `(setf (gethash ,command *commands*) #'(lambda ,args
                                            ,@body)))
 
 (defmethod resource-received-text ((res chat-resource) client message)
@@ -25,11 +25,11 @@
          (command (pop elts))
          ; "String.join"
          (rest (format nil "~{~A~^ ~}" elts)))
-    (funcall (gethash command *commands*) uid rest)))
+    (funcall (gethash command *commands*) client uid rest)))
 
 (register-global-resource "/chat"
                           (make-instance 'chat-resource)
-                          (origin-prefix "http://vm.margaine.com:1101"))
+                          (origin-prefix "http://localhost:1101"))
 
 (bt:make-thread (lambda ()
                   (run-resource-listener

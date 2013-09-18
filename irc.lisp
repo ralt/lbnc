@@ -4,7 +4,7 @@
   (let ((uid (format nil "~A" (uuid:make-v4-uuid)))
         (conn (cl-irc:connect :nickname nickname
                               ; Test server: ngircd works nicely.
-                              :server "127.0.0.1"
+                              :server "vm.margaine.com"
                               :port 6668)))
     (add-user uid client conn)
     (bt:make-thread (lambda ()

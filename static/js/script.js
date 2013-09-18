@@ -1,4 +1,4 @@
-var ws = new WebSocket('ws://vm.margaine.com:1102/chat'),
+var ws = new WebSocket('ws://localhost:1102/chat'),
     uid,
     messEl = createMessageElement();
 
@@ -8,6 +8,7 @@ ws.onmessage = function(e) {
     case 'new-uid':
         uid = e.data.split(' ')[1];
         ws.send(uid + ' join #help');
+        break;
     case 'privmsg':
         var el = messEl.cloneNode(true),
             msg = JSON.parse(e.data.split(' ')[1]);
@@ -17,11 +18,12 @@ ws.onmessage = function(e) {
         el.querySelector('.content').textContent = msg.args;
 
         document.querySelector('#messages').appendChild(el);
+        break;
     }
 };
 
 ws.onopen = function() {
-    ws.send('0 connect ' + Math.random().toString(36).sustring(7));
+    ws.send('0 connect ' + Math.random().toString(36).substring(7));
 };
 
 function createMessageElement() {
@@ -39,4 +41,6 @@ function createMessageElement() {
     var msg = document.createElement('div');
     msg.className = 'content';
     el.appendChild(msg);
+
+    return el;
 }
