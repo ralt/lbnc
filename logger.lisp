@@ -4,4 +4,4 @@
                                          :message-class 'cl-log:formatted-message))
 
 (cl-log:start-messenger 'cl-log:text-file-messenger
-                        :filename "log.txt")
+                        :filename "lbnc.log")
