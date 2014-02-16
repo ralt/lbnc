@@ -23,7 +23,8 @@ ws.onmessage = function(e) {
 };
 
 ws.onopen = function() {
-    ws.send('0 connect ' + Math.random().toString(36).substring(7));
+    var nickname = Math.random().toString(36).substring(7);
+    ws.send('0 connect ' + nickname);
 };
 
 function createMessageElement() {

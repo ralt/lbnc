@@ -1,6 +1,6 @@
 ;;;; package.lisp
 
 (defpackage #:lbnc
-  (:use #:cl #:hunchentoot #:clws))
+  (:use #:cl #:clws))
 
 (setf cl-who:*prologue* "<!doctype html>")

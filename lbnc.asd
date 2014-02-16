@@ -11,8 +11,10 @@
                "bordeaux-threads"
                "cl-irc"
                "uuid"
+               "cl-log"
                "cl-json")
   :components ((:file "package")
+               (:file "logger")
                (:file "users")
                (:file "http")
                (:file "ws")

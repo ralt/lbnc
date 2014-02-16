@@ -3,10 +3,10 @@
 (defparameter *commands* (make-hash-table :test 'equal))
 
 (bt:make-thread (lambda ()
-                  (run-server 1102))
+                  (clws:run-server 1102))
                 :name "WebSocket server")
 
-(defclass chat-resource (ws-resource)
+(defclass chat-resource (clws:ws-resource)
   ())
 
 (defmethod resource-client-connected ((res chat-resource) client)
@@ -27,11 +27,11 @@
          (rest (format nil "~{~A~^ ~}" elts)))
     (funcall (gethash command *commands*) client uid rest)))
 
-(register-global-resource "/chat"
+(clws:register-global-resource "/chat"
                           (make-instance 'chat-resource)
-                          (origin-prefix "http://localhost:1101"))
+                          (clws:origin-prefix "http://localhost:1101"))
 
 (bt:make-thread (lambda ()
-                  (run-resource-listener
-                   (find-global-resource "/chat")))
+                  (clws:run-resource-listener
+                   (clws:find-global-resource "/chat")))
                 :name "Chat resource listener")

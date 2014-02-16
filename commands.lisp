@@ -3,7 +3,7 @@
 (defcommand "connect" (client uid rest)
   (declare (ignorable uid))
   (let ((new-uid (create-irc-connection client rest)))
-    (write-to-client-text client (concatenate 'string
+    (clws:write-to-client-text client (concatenate 'string
                                               "new-uid "
                                               new-uid))
     (cl-irc:add-hook (get-connection new-uid)
