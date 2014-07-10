@@ -3,13 +3,9 @@
 (defun create-irc-connection (client nickname)
   (let ((uid (format nil "~A" (uuid:make-v4-uuid)))
         (conn (cl-irc:connect :nickname nickname
-                              :server "vm.margaine.com"
-                              :port 6668)))
-    (add-user uid client conn)
-    (bt:make-thread (lambda ()
-                      (cl-irc:read-message-loop conn))
-                    :name (concatenate 'string "IRC " uid))
-    uid))
+                              :server "localhost"
+                              :port 6667)))
+    (add-user uid client conn)))
 
 (defun add-privmsg-hook (uid)
   (let ()

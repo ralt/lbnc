@@ -17,7 +17,7 @@
       hunchentoot:*dispatch-table*)
 
 (hunchentoot:define-easy-handler (home :uri "/") ()
-  (hunchentoot:redirect "chat"))
+  (hunchentoot:redirect "/chat"))
 
 (hunchentoot:define-easy-handler (chat :uri "/chat") ()
     (page "Chat window"
